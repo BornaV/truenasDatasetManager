@@ -25,8 +25,12 @@ then
 	echo "API_TOKEN is missing"
 	exit
 fi
-
-user_input "Do you want to lock or unlock the dataset"
+if [ -z "$1" ]
+  then
+	user_input "Do you want to lock or unlock the dataset"
+  else
+    REPLY=$1
+fi
 if [[ $REPLY =~ ^[Uu]$ ]]
 then
 	if [ -z "$MY_SECRET" ]
